@@ -1,1 +1,1 @@
-####This is training project with vuejs frontend and laravel backend.
+# This is training project with vuejs frontend and laravel backend.
