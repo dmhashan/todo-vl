@@ -5,3 +5,11 @@ body {
   background-size: cover;
   -o-background-size: cover;
 }
+
+.edit {
+  color: #2A9FD6;
+}
+
+.red {
+  color: rgb(214, 42, 42);
+}

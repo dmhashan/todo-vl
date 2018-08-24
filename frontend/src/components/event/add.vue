@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col align-self-center">
 		<br/>
-		<form class="col-6">
+		<form class="col-6" @submit.prevent="addEvent">
 			<fieldset>
 				<legend>Add Event</legend>
 				
@@ -16,7 +16,7 @@
 					aria-describedby="emailHelp" 
 					placeholder="Enter event details"
 					v-validate="'required'"
-					v-model="item.detail"
+					v-model="item.details"
 				>
 				<div class="alert alert-secondary" v-show="errors.has('inputEvent')">
 					{{ errors.first('inputEvent') }}
@@ -26,7 +26,7 @@
 				<button 
 					type="submit" 
 					class="btn btn-primary"
-					v-show="item.detail"
+					v-show="item.details"
 				>Save</button>
 			</fieldset>
 		</form>	
@@ -36,12 +36,24 @@
 
 <script>
 export default {
-	data(){
-		return{
-			item:{
-				detail:''
-			}
-		}
-	}
-}
+  data() {
+    return {
+      item: {
+        details: ""
+      }
+    };
+  },
+
+  methods: {
+    addEvent() {
+      console.log("form submitted");
+      this.$http
+        .post("http://localhost:8000/api/event/add", this.item)
+        .then(function(response) {
+          //console.log(response);
+          this.$router.push("/");
+        });
+    }
+  }
+};
 </script>

@@ -17,14 +17,18 @@ Route::post('/event/add',[
     'uses'=>'ItemsController@addEvent'
 ]);
 
-Route::get('/events',[
+Route::get('/event',[
     'uses'=>'ItemsController@showAll'
 ]);
 
-Route::delete('/event/delete',[
+Route::delete('/event/delete/{id}',[
     'uses'=>'ItemsController@deleteEvent'
 ]);
 
-Route::puts('/event/edit',[
+Route::put('/event/edit/{id}',[
     'uses'=>'ItemsController@editEvent'
+]);
+
+Route::get('/event/{id}',[
+    'uses'=>'ItemsController@showEvent'
 ]);
