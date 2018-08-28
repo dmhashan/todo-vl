@@ -13,22 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/event/add',[
-    'uses'=>'ItemsController@addEvent'
-]);
+Route::post('/event/add','ItemsController@addEvent');
 
-Route::get('/event',[
-    'uses'=>'ItemsController@showAll'
-]);
+Route::get('/event','ItemsController@showAll');
 
-Route::delete('/event/delete/{id}',[
-    'uses'=>'ItemsController@deleteEvent'
-]);
+Route::delete('/event/delete/{id}','ItemsController@deleteEvent');
 
-Route::put('/event/edit/{id}',[
-    'uses'=>'ItemsController@editEvent'
-]);
+Route::put('/event/edit/{id}', 'ItemsController@editEvent');
 
-Route::get('/event/{id}',[
-    'uses'=>'ItemsController@showEvent'
-]);
+Route::get('/event/{id}', 'ItemsController@showEvent');

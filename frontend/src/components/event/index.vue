@@ -1,13 +1,15 @@
 <template>
     <div class="list-group">
-        <br/>
-        <list-item v-for="item in items" :item="item"></list-item>
+        <item-add :items="items"></item-add>
+        <list-item v-for="item in items" :key="item.id" :item="item" :items="items"></list-item>
+        <br/><br/><br/>
     </div>
 </template>
 
 <script>
 
-  import listItem from '../listItem';
+  import listItem from './listItem.vue';
+  import addForm from './add.vue';
 
 export default {
   data() {
@@ -17,8 +19,10 @@ export default {
   },
 
   created() {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaa');
     this.$http.get("http://localhost:8000/api/event")
     .then(function(response) {
+      console.log('ccccccccccccccccccccccccccccc');
       this.items = response.body.response;
     });
   },
@@ -39,7 +43,8 @@ export default {
   },
 
   components: {
-    'list-item': listItem
+    'list-item': listItem,
+    'item-add': addForm
   }
 };
 </script>
