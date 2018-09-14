@@ -20,7 +20,7 @@ export default {
 
   created() {
     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaa');
-    this.$http.get("http://localhost:8000/api/event")
+    this.$http.get("http://localhost/api/event")
     .then(function(response) {
       console.log('ccccccccccccccccccccccccccccc');
       this.items = response.body.response;

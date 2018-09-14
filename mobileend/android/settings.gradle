@@ -1,0 +1,3 @@
+rootProject.name = 'mobileend'
+
+include ':app'

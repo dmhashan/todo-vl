@@ -59,7 +59,7 @@ export default {
     methods:{
         deleteItem: function() {
             this.item.details = "Deleting . . .";
-            this.$http.delete("http://localhost:8000/api/event/delete/"+this.item.id)
+            this.$http.delete("http://localhost/api/event/delete/"+this.item.id)
             .then(function(response) {
                 const index = this.items.findIndex(tempItem => tempItem === this.item);
                 this.items.splice(index, 1);
@@ -69,7 +69,7 @@ export default {
 
         editItem: function() {
             this.tempItem = {'details' : this.item.details};
-            this.$http.put("http://localhost:8000/api/event/edit/"+this.item.id, this.tempItem)
+            this.$http.put("http://localhost/api/event/edit/"+this.item.id, this.tempItem)
             .then(function(response) {
                 this.updateFlag = true;
                 this.disableFlag = true;

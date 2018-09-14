@@ -37,7 +37,7 @@ export default {
     addItem() {
       console.log("form submitted");
       this.$http
-        .post("http://localhost:8000/api/event/add", this.item)
+        .post("http://localhost/api/event/add", this.item)
         .then(function(response) {
 					this.items.push(response.body.response);
 					this.item.details = '';
